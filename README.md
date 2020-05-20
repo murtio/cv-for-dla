@@ -9,6 +9,7 @@ Murtadha
 6th May 2020
 
 ---
+
 ## NOTES on CODE/DATA
 
 The used data can be found on the BCE project website. It's divided into 5 sets, each has the raw image and its xml. When trying to replicate one algorithm you have to make sure that the data path is set to this folder.
@@ -17,11 +18,12 @@ All codes can be found in the /code folder. For each algorithm, there's a folder
 
 To run the LABA algorithm, use the LABA.py file. There's no special dependencies for this file. Make sure to specify the data path correctly inside the code.
 
-To run the MASRCNN algorithm, use the jupyter notebook in code/maskrcnn/samples/dla_code.ipynb. There's specific depdenncies for this code, you have to make sure that even the versions of libraries are correct as in requirements file code/maskrcnn/requirements.txt. If you are using MACOS then you might need to opt out from MKL backend; in conda pakaging, use the following command '$conda install nomkl'.
+To run the MASRCNN algorithm, use the jupyter notebook in code/maskrcnn/samples/dla_code.ipynb. There's specific depdenncies for this code, you have to make sure that even the versions of libraries are correct as in requirements file code/maskrcnn/requirements.txt. If you are using MACOS then you might need to opt out from MKL backend; in conda pakaging, use the following command $conda install nomkl.
 
 To run the DOCSCRUM algorthim, use the jupyter notebook in /code/docstrum/Docstrum_murt.ipynb. Install the depedencies appearing in the first cell, and make sure you use Python 2.7.
  
 ---
+
 ## Problem Statement
 
 The Accuracy of OCR can be increased by applying document layout analysis (DLA) beforehand. A team at BU led by Prof. Margrit Betke has worked on studying the effect of this step on OCR performance over Arabic document images [1]. They also provided a benchmark dataset to assess that. The research was extended to investigate multiple ML approaches for applying DLA, such as SVM and deep NN. Currently, the task is divided into detection (physical layout analysis) and classification (logical layout analysis). The SVM approach uses CV techniques for detection, and SVM for classification. The NN approach uses Mask-RCNN for detection, and ResNet-18 for classification. The task of this project is to implement traditional CV techniques for page segmentation (detection), such as Docstrum algorithm, and compare its results to deep NN approach’s [3, 4].
