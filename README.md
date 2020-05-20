@@ -21,7 +21,8 @@ To run the LABA algorithm, use the LABA.py file. There's no special dependencies
 To run the MASRCNN algorithm, use the jupyter notebook in code/maskrcnn/samples/dla_code.ipynb. There's specific depdenncies for this code, you have to make sure that even the versions of libraries are correct as in requirements file code/maskrcnn/requirements.txt. If you are using MACOS then you might need to opt out from MKL backend; in conda pakaging, use the following command $conda install nomkl.
 
 To run the DOCSCRUM algorthim, use the jupyter notebook in /code/docstrum/Docstrum_murt.ipynb. Install the depedencies appearing in the first cell, and make sure you use Python 2.7.
- 
+
+
 ---
 
 ## Problem Statement
