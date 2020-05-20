@@ -1,17 +1,15 @@
-**Project**
+# Computer Vision Segmentation for Document Layout Analysis
 
-Computer Vision Segmentation for Document Layout Analysis
-
-**Author**
+## Author
 
 Murtadha
 
-**Date**
+## Date
 
 6th May 2020
 
-** **
-**NOTES on CODE/DATA**
+---
+## NOTES on CODE/DATA
 
 The used data can be found on the BCE project website. It's divided into 5 sets, each has the raw image and its xml. When trying to replicate one algorithm you have to make sure that the data path is set to this folder.
 
@@ -23,14 +21,14 @@ To run the MASRCNN algorithm, use the jupyter notebook in code/maskrcnn/samples/
 
 To run the DOCSCRUM algorthim, use the jupyter notebook in /code/docstrum/Docstrum_murt.ipynb. Install the depedencies appearing in the first cell, and make sure you use Python 2.7.
  
-** **
-**Problem Statement**
+---
+## Problem Statement
 
 The Accuracy of OCR can be increased by applying document layout analysis (DLA) beforehand. A team at BU led by Prof. Margrit Betke has worked on studying the effect of this step on OCR performance over Arabic document images [1]. They also provided a benchmark dataset to assess that. The research was extended to investigate multiple ML approaches for applying DLA, such as SVM and deep NN. Currently, the task is divided into detection (physical layout analysis) and classification (logical layout analysis). The SVM approach uses CV techniques for detection, and SVM for classification. The NN approach uses Mask-RCNN for detection, and ResNet-18 for classification. The task of this project is to implement traditional CV techniques for page segmentation (detection), such as Docstrum algorithm, and compare its results to deep NN approach’s [3, 4].
 
  
 
-**Related Work**
+## Related Work 
 
 The proposed framework in [2] uses a rule-based algorithm to perform page segmentation. The output of this step is a list of contours. Afterwards, an SVM model is ran over the list of contours to predict its class. It achieves promising results, outperforming former NN framework. However, it doesn’t explore different methods for page segmentation, such as Docstrum or Voronoi-diagram based algorithm, which were shown to perform well in [5] and [6].
 
@@ -46,9 +44,9 @@ Recently, the shift in computer vision field is towards using convolutional neur
 
  
 
-** **
+---
 
-**Data**
+## Data 
 
 For evaluation, we use the benchmark dataset provided by [1], referred to as BCE. The BCE dataset has 1,800 images of Arabic book pages, with its layout annotation. The document images are given in a grayscale JPG format, while its layout annotation is given in XML format having the coordinates of the page layouts. Example of layouts coordinates of one page is given in *Figure 1*.
 
@@ -62,17 +60,17 @@ Figure 1 BCE Layouts Coordinates Example
 
  
 
-**Methods**
+## Methods 
 
 In this project, three algorithms were considered for the page segmentation task. The used benchmark dataset is the BCE dataset collected and annotated by [1]. The selected algorithms are the Docstrum [6], the rule-based algorithm in LABA [2], and the Mask-RCNN in [8]. For all implementations, we used Python. OpenCV Python library, Keras and  Tensorflow.
 
  
 
-**Docstrum******
+## Docstrum
 
 While the Docstrum algorithm has been introduces almost three decades ago, there is scarce resources about its implementation. The version used in [5] is a modification of the one used in [6]; *figure 2* provides its steps as given in [6]. Here we make use of the version shared by Chad Oliver[[1]](#_ftn1), which is an implementation of the algorithm in its original version introduced in [9]. Some bugs were fixed and the code was extended by Chulwoo Mike Pack to include grouped polylines and transfer them into bounding boxes[[2]](#_ftn2). We fixed some bugs in the latter code and update it to accommodate the changes in its dependencies.
 
-** **
+---
 
 **![](screenshots.fld/image022.png)**
 
@@ -80,7 +78,7 @@ Figure 2 Docscrum steps as given in [6]****
 
  
 
-**Rule-based**
+## Rule-based
 
 The main contribution of [2] is in the logical layout analysis, however, since it achieves good results in this task we wanted to test its algorithm used in physical layout analysis. We used the same steps provided in the paper, given in *figure 3*. while trying as much as possible to tune the parameters for better performance. The paper doesn’t go into details of the used parameters.
 
@@ -96,7 +94,7 @@ Figure 3 Rule-based algorithm steps as given in [2]
 
  
 
-**Mask-RCNN**
+## Mask-RCNN 
 
 Implantation Mask-RCNN is an algorithm that involves two stages, first, it generates proposals for regions of interest. Second, it classifies those identified regions. Due to the limitations imposed by the benchmark dataset, we have relied on pre-trained models to get a taste of its performance on page images. The used implementation in this project makes use of the Feature Pyramid Network (FPN) and a ResNet101 backbone [10].
 
@@ -104,7 +102,7 @@ Implantation Mask-RCNN is an algorithm that involves two stages, first, it gener
 
  
 
-**Results and Discussion**
+## Results and Discussion 
 
 Docscrum is one of three the highest performance algorithms in [5], however, it takes more time to compute its polylines k-means. This note about its speed, was also confirmed in [5, 6]. The accuracy of its results is not as promising as expected. Actually, given the time of computation the final results are modest. Example of its results are given in figure 4. We can notice that it fails to recognize the image and its captions, while doing mediocre performance in recognizing the text lines.
 
@@ -134,23 +132,23 @@ The Mask-RCNN pre-trained used in this project is for detecting object that are 
 
 Figure 6 Some results from running Mask-RCNN algorithm; (a) person was detected, (b) group of persons were detected, (c) group of persons, (d) satellite station, € a person riding a camel, and (f) a palm tree.
 
-** **
+---
 
-**Conclusion**
+## Conclusion 
 
 Traditional CV algorithm, such as rule-based, not only achieve good results but also don’t require trained. On the other hand, NN algorithms require training but are capable of getting more information from the page images. We recommend using the rule-based algorithm for physical layout analysis in the absence of a training data, while using Mask-RCNN when data is available. We also recommend using Mask-RCNN for generating image captions and extract other information about the page images.
 
 Even though the page segmentation task could be improved using different approaches, however, there are little discussion in the field about the DLA effect on OCR performance. Many studies emphasize on the importance of DLA; however, they don’t provide references or a quantitative discussion of that importance. Future work shall investigate that.
 
-** **
+---
 
-**Acknowledgment**
+## Acknowledgment 
 
 Many thanks to professor Margrit Betke for her dedication and support in this project and others; her spirit has been always a source of encouragement to learn more. The thanks are also extended to Wenda Qin for his ideas and time in getting me started with DLA. It was a wonderful experience to discuss and work closely with my colleague Georgios Karantonis during this computer vision class.
 
- 
+ ---
 
-**References**
+## References 
 
 [1] Saad, Rana S. M., et al. “BCE-Arabic-v1 Dataset: Towards Interpreting Arabic Document Images for People with Visual Impairments.” *Proceedings of the 9th ACM International Conference on PErvasive Technologies Related to Assistive Environments - PETRA ’16*, ACM Press, 2016, pp. 1–8. *DOI.org (Crossref)*, doi:10.1145/2910674.2910725.
 
