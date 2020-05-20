@@ -2,17 +2,14 @@
 
 Computer Vision Segmentation for Document Layout Analysis
 
- 
-
 **Author**
 
 Murtadha
 
- 
-
 **Date**
 
 6th May 2020
+
 ** **
 **NOTES on CODE/DATA**
 
