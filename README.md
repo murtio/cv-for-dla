@@ -1,6 +1,6 @@
 # Computer Vision Segmentation for Document Layout Analysis
 
-<img src="screenshots.fld/preview.gif" width="200">
+<img src="screenshots.fld/preview.gif" width="300">
 
 ## Author
 
