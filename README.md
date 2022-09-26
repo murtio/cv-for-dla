@@ -1,5 +1,5 @@
 # Computer Vision Segmentation for Document Layout Analysis
-
+<img src="screenshots.fld/image006.png" width="200"><img src="screenshots.fld/image007.png" width="200"><img src="screenshots.fld/image008.png" width="200"><img src="screenshots.fld/image009.png" width="200"><img src="screenshots.fld/image010.png" width="200"><img src="screenshots.fld/image011.png" width="200"><img src="screenshots.fld/image012.png" width="200">
 ## Author
 
 Murtadha
